@@ -1,5 +1,5 @@
 import React from "react";
-import "./display_weather.css";
+// import "./display_weather.css";
 
 function DisplayWeather(props) {
   const { data } = props;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DisplayWeather from "./display_weather";
-import "./weather.css";
+// import "./weather.css";
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
