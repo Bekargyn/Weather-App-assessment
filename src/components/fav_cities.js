@@ -24,7 +24,7 @@ const renderFavCity = listOfCities.map((city) => {
 export const FavCities = () => {
   return (
     <div className="fav-cities">
-      <p>Favorite cities</p>
+      <p>select favorite from the list:</p>
       <select>{renderFavCity}</select>
     </div>
   );

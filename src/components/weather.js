@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DisplayWeather from "./display_weather";
+import { FavCities } from "./fav_cities";
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
@@ -33,22 +34,30 @@ const Weather = () => {
     }
   };
   return (
-    <div className="weather">
-      <span className="title">Weather App</span>
-
-      <form>
-        <input
-          type="text"
-          placeholder="City (required)"
-          name="city"
-          onChange={(e) => handleChange(e)}
-        />
-        &nbsp; &nbsp; &nbsp;&nbsp;
-        <button className="getweather" onClick={(e) => weatherData(e)}>
-          Submit
-        </button>
-      </form>
-
+    <div className="weather container">
+      <div className="search-header">
+        <h3 className="title">Weather App</h3>
+        <form>
+          <input
+            type="text"
+            placeholder="Search city (required)"
+            name="city"
+            onChange={(e) => handleChange(e)}
+            value={city}
+          />
+          <button
+            className="getweather"
+            onClick={(e) => {
+              weatherData(e);
+              setCity("");
+            }}
+          >
+            Submit
+          </button>
+        </form>
+        <p>OR</p>
+        <FavCities />
+      </div>
       {weather.data !== undefined ? (
         <div>
           <DisplayWeather data={weather.data} />
