@@ -1,6 +1,5 @@
 import { useState } from "react";
 import DisplayWeather from "./display_weather";
-// import "./weather.css";
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
@@ -16,7 +15,10 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APIKEY}`
       )
         .then((res) => res.json())
-        .then((data) => data);
+        .then((data) => data)
+        .catch((err) => {
+          console.log(err);
+        });
 
       setWeather({ data: data });
     }
@@ -33,7 +35,7 @@ const Weather = () => {
   return (
     <div className="weather">
       <span className="title">Weather App</span>
-      <br />
+
       <form>
         <input
           type="text"
